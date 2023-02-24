@@ -3,10 +3,13 @@ package com.example.book_my_show.Models;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.repository.cdi.Eager;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 @Data
 @NoArgsConstructor
 @Builder
@@ -21,9 +24,9 @@ public class UserEntity {
 
     private int age;
 
+
     @Column(unique = true,nullable = false)
     private String email;
-
 
     @NonNull
     @Column(unique = true)
@@ -31,5 +34,7 @@ public class UserEntity {
 
     private String address;
 
+    @OneToMany(mappedBy = "userEntity",cascade = CascadeType.ALL)
+    private List<TicketEntity> bookedTickets = new ArrayList<>();
 
 }

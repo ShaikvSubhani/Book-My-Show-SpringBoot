@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="Theater_seats")
+@Table(name = "theater_seats")
 @Data
 @NoArgsConstructor
 public class TheaterSeatEntity {
@@ -21,11 +21,7 @@ public class TheaterSeatEntity {
     private String seatNo;
 
     @ManyToOne
-    @JoinColumn(referencedColumnName = "name")
+    @JoinColumn
     private TheaterEntity theaterEntity;
-
-
-
-
 
 }
