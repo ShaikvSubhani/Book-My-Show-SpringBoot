@@ -4,6 +4,8 @@ package com.example.book_my_show.Models;
 import com.example.book_my_show.Genres.Genre;
 import com.example.book_my_show.Genres.Language;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -12,6 +14,8 @@ import java.util.List;
 @Entity
 @Table(name = "movies")
 @Data
+@Builder
+@AllArgsConstructor
 public class MovieEntity {
 
     @Id
