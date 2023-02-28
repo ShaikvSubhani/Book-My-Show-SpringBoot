@@ -27,6 +27,8 @@ public class TheaterService {
         TheaterEntity theaterEntity= TheaterConvertor.convertDtoToEntity(theaterEntryDto);
         List<TheaterSeatEntity> theaterSeatEntityList=createTheaterSeats(theaterEntryDto,theaterEntity);
 
+        theaterEntity.setTheaterSeatEntityList(theaterSeatEntityList);
+        theaterRepository.save(theaterEntity);
         return "theater added successfully";
     }
 
@@ -59,8 +61,6 @@ public class TheaterService {
 
             theaterSeatEntityList.add(theaterSeatEntity);
         }
-
-        theaterSeatRepository.saveAll(theaterSeatEntityList);
 
         return theaterSeatEntityList;
 

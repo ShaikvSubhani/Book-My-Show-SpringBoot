@@ -4,7 +4,10 @@ package com.example.book_my_show.Models;
 import com.example.book_my_show.Genres.ShowType;
 import jakarta.persistence.*;
 import jdk.jfr.Timestamp;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -17,6 +20,9 @@ import java.util.List;
 @Entity
 @Table(name="shows")
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ShowEntity {
 
     @Id

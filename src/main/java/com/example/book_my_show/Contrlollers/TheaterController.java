@@ -4,7 +4,9 @@ package com.example.book_my_show.Contrlollers;
 import com.example.book_my_show.EntryDtos.TheaterEntryDto;
 import com.example.book_my_show.Services.TheaterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,16 +18,18 @@ public class TheaterController {
     @Autowired
     TheaterService theaterService;
 
-    public ResponseEntity<String> addTheater(@RequestBody TheaterEntryDto theaterEntryDto)
+    @PostMapping("/add")
+    public ResponseEntity addTheater(@RequestBody TheaterEntryDto theaterEntryDto)
     {
 
         try{
 
-            String response
+                String result=theaterService.addTheater(theaterEntryDto);
+                return new ResponseEntity<>(result, HttpStatus.CREATED);
 
         }catch (Exception e)
         {
-
+            return new ResponseEntity<>("theater could not be added",HttpStatus.BAD_REQUEST);
         }
     }
 }
