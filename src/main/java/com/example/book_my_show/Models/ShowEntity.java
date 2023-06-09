@@ -61,6 +61,6 @@ public class ShowEntity {
 
     @OneToMany(mappedBy = "showEntity",cascade = CascadeType.ALL)
     private List<ShowSeatEntity> listOfShowSeats = new ArrayList<>();
-
+//update
 
 }
